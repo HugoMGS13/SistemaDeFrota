@@ -27,7 +27,5 @@ public class Frota{
         new Frota().manuntencao(moto);
 
         new Frota().CriarViagem("Belém", "Castanhal",200, moto);        
-
-
     }
 }
