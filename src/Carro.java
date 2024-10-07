@@ -3,6 +3,7 @@ public class Carro extends Veiculo {
     public Carro(String marca, String modelo, int ano, double quilometragem) {
         super(marca, modelo, ano, quilometragem);
     }
+    
 
     @Override
     public void acelerar() {
@@ -32,6 +33,21 @@ public class Carro extends Veiculo {
     @Override
     public void descarregarCarga() {
         System.out.println("Descarregando a carga");
+    }
+
+
+    @Override
+    public int calcularConsumo(){
+        int km = 1000;
+        int L = 50;
+        int consumopkm = km/L;
+        return consumopkm;
+    }
+
+
+    @Override
+    public int calculareficiencia() {
+        return calcularConsumo()/10;
     }
     
 }

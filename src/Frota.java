@@ -2,30 +2,43 @@ import java.util.ArrayList;
 
 public class Frota{
 
+    private ArrayList<Veiculo> ListadeFrota;
+    public Frota(){
+        this.ListadeFrota = new ArrayList<>();
+    }
+
+    public void adicionarnaFrota(Veiculo veiculo){
+        try{this.ListadeFrota.add(veiculo);
+        }
+        catch(Exception e){
+            System.out.println("Erro não identificado na adição desse veículo a frota.");
+        }
+    }
+
     public void manuntencao(Veiculo veiculo){
-        veiculo.realizarManutencao();
+        if (veiculo.getMarca() == null || veiculo.getModelo() == null){
+            System.out.println(new EntradaNaoDesejada("Entrada não pode ser nula"));
+        }else{
+            veiculo.realizarManutencao();
+        }
+        
     }
 
     public void CriarViagem(String origem, String destino, double distancia, Veiculo veiculo){
         Viagem viagem = new Viagem<Veiculo>(origem, destino, distancia, veiculo);
 
-        viagem.iniciarViagem();
-        veiculo.carregarCarga();
-        veiculo.descarregarCarga();
+        try{
+            viagem.iniciarViagem();
+            veiculo.carregarCarga();
+            veiculo.descarregarCarga();
+        }catch( Exception e){
+            System.out.println("Erro não identificado na criação da Viagem");
+        }
     }
 
-    public static void main(String[] args) throws Exception {
 
-        Veiculo moto = new Moto("Fiat", "CPX", 2023, 0);
-
-        Veiculo carro = new Carro("Fiat", "Uno", 2010, 0);
-
-        new Frota().manuntencao(carro);
-
-        new Frota().CriarViagem("Belém", "Mosqueiro",400, carro);    
-
-        new Frota().manuntencao(moto);
-
-        new Frota().CriarViagem("Belém", "Castanhal",200, moto);        
+    public void listarEventos(Veiculo veiculo, Rastreador rastreador) {
+        rastreador.listarEventos(veiculo);
     }
+
 }

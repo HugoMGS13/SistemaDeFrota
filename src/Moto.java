@@ -34,5 +34,18 @@ public class Moto extends Veiculo{
     public void descarregarCarga() {
         System.out.println("Descarregando a carga");
     }
+
+    @Override
+    public int calcularConsumo() {
+        int km = 1000;
+        int L = 30;
+        int consumopkm = km/L;
+        return consumopkm;
+    }
+
+    @Override
+    public int calculareficiencia() {
+        return calcularConsumo()/10;
+    }
     
 }
