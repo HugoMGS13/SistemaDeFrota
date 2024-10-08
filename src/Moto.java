@@ -2,7 +2,6 @@ public class Moto extends Veiculo{
 
     public Moto(String marca, String modelo, int ano, double quilometragem) {
         super(marca, modelo, ano, quilometragem);
-        //TODO Auto-generated constructor stub
     }
 
     @Override

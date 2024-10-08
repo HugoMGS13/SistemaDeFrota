@@ -18,8 +18,12 @@ public class Rastreador<T extends Veiculo> {
         for (Map.Entry<T, String> entry : eventosPorVeiculo.entrySet()) {
             veiculo = entry.getKey();
             String evento = entry.getValue();
-            System.out.println("Veículo: " + veiculo.getModelo() + " da marca: " + veiculo.getMarca() );
-            System.out.println("Evento: " + evento);
+            if (evento != ""){
+                System.out.println("Veículo: " + veiculo.getModelo() + " da marca: " + veiculo.getMarca() );
+                System.out.println("Evento: " + evento);
+            } else {
+                
+            }
         }
     }
 

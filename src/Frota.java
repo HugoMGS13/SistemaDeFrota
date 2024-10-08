@@ -3,12 +3,16 @@ import java.util.ArrayList;
 public class Frota{
 
     private ArrayList<Veiculo> ListadeFrota;
+
     public Frota(){
         this.ListadeFrota = new ArrayList<>();
     }
 
     public void adicionarnaFrota(Veiculo veiculo){
         try{this.ListadeFrota.add(veiculo);
+        }
+        catch(NullPointerException e){
+            System.out.println(new Entradanula("Entrada não pode ser nula"));
         }
         catch(Exception e){
             System.out.println("Erro não identificado na adição desse veículo a frota.");
@@ -17,7 +21,7 @@ public class Frota{
 
     public void manuntencao(Veiculo veiculo){
         if (veiculo.getMarca() == null || veiculo.getModelo() == null){
-            System.out.println(new EntradaNaoDesejada("Entrada não pode ser nula"));
+            System.out.println(new Entradanula("Entrada não pode ser nula"));
         }else{
             veiculo.realizarManutencao();
         }
@@ -31,7 +35,11 @@ public class Frota{
             viagem.iniciarViagem();
             veiculo.carregarCarga();
             veiculo.descarregarCarga();
-        }catch( Exception e){
+        }
+        catch (NullPointerException e){
+            System.out.println(new Entradanula("Entrada não pode ser nula"));
+        }
+        catch(Exception e){
             System.out.println("Erro não identificado na criação da Viagem");
         }
     }
