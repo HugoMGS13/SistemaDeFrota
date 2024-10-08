@@ -15,15 +15,19 @@ public class Rastreador<T extends Veiculo> {
 
     public void listarEventos(T veiculo) {
         System.out.println("Eventos desse veículo:");
-        for (Map.Entry<T, String> entry : eventosPorVeiculo.entrySet()) {
-            veiculo = entry.getKey();
-            String evento = entry.getValue();
-            if (evento != ""){
+        try{
+            for (Map.Entry<T, String> entry : eventosPorVeiculo.entrySet()) {
+                veiculo = entry.getKey();
+                String evento = entry.getValue();
                 System.out.println("Veículo: " + veiculo.getModelo() + " da marca: " + veiculo.getMarca() );
                 System.out.println("Evento: " + evento);
-            } else {
-                
             }
+        }
+        catch (NullPointerException e){
+            System.out.println(new Entradanula("Entrada nula não é permitida."));
+        }
+        catch (Exception e){
+            System.out.println("Erro não identificado encontrado.");
         }
     }
 

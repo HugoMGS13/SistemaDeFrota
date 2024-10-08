@@ -9,10 +9,15 @@ public class Frota{
     }
 
     public void adicionarnaFrota(Veiculo veiculo){
-        try{this.ListadeFrota.add(veiculo);
-        }
-        catch(NullPointerException e){
-            System.out.println(new Entradanula("Entrada não pode ser nula"));
+        try{   
+            if(veiculo == null){
+                System.out.println(new Entradanula("A entrada não pode ser nula"));
+
+            }else if(veiculo.getMarca() == null || veiculo.getModelo() == null){
+
+                System.out.println(new Entradanula("A entrada não pode ser nula"));
+            }
+            else{this.ListadeFrota.add(veiculo);}
         }
         catch(Exception e){
             System.out.println("Erro não identificado na adição desse veículo a frota.");
@@ -21,7 +26,7 @@ public class Frota{
 
     public void manuntencao(Veiculo veiculo){
         if (veiculo.getMarca() == null || veiculo.getModelo() == null){
-            System.out.println(new Entradanula("Entrada não pode ser nula"));
+            System.out.println(new Entradanula("Entrada para manutenção não pode ser nula"));
         }else{
             veiculo.realizarManutencao();
         }
